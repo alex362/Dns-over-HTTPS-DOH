@@ -52,8 +52,9 @@ if __name__ == "__main__":
 
       
 python3 doh_client.py  
-Example run
-![grafik](https://github.com/user-attachments/assets/3e2a5718-88fd-4a66-a48d-d129c276fbdf)
+Example run 
+![grafik](https://github.com/user-attachments/assets/ff8f6724-9985-4411-87f0-7435cad4ad7f)
+
 
 
 
@@ -66,7 +67,8 @@ class DNSDoHServer:
 
 
 Example run:
-![grafik](https://github.com/user-attachments/assets/44bde720-9619-44ed-ac1c-47f34b54e5ca)
+![grafik](https://github.com/user-attachments/assets/aa582469-afdb-4018-adc6-74f4a23248d6)
+
 
 Note instaead of the  example.com.co you should see your domain name
 Run: python3 doh_server.py

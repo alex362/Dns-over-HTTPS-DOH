@@ -52,6 +52,10 @@ if __name__ == "__main__":
 
       
 python3 doh_client.py  
+Example run
+![grafik](https://github.com/user-attachments/assets/3e2a5718-88fd-4a66-a48d-d129c276fbdf)
+
+
 
 **2. Server side**  
 
@@ -60,7 +64,11 @@ Make sure to change the IP in the "doh_server.py"
 class DNSDoHServer:
     def __init__(self, host='YOURIP', port=53): # Replace with Your public IP
 
-      
+
+Example run:
+![grafik](https://github.com/user-attachments/assets/44bde720-9619-44ed-ac1c-47f34b54e5ca)
+
+Note instaead of the  example.com.co you should see your domain name
 Run: python3 doh_server.py
 
 # Architecture TODO

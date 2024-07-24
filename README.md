@@ -21,15 +21,15 @@ It is designed for testing in controlled environments to demonstrate the feasibi
 For client side, linux is recommended but the code was tested on Windows 10 and seem to worked :)  
 For server side linux.  
 
-1. **Client Side**  
+**1. Client Side**  
     Install Python >=3.8 from the official website or your package manager.  
-     Install the requests library using pip:  
-     pip install requests
-2. **Server side** only Linux  
+     Install the requests library using pip:    
+     **pip install requests**
+**2. Server side** only Linux  
     Install the dnslib library using pip
-    pip install dnslib  
+    **pip install dnslib**  
 
-3. Register domain 
+**3. Register domain**  
 Example purchasing domain using namecheap.com
 ![grafik](https://github.com/user-attachments/assets/26f16ed6-1a45-4b1c-8ddc-cac2287eba24)
 
@@ -61,10 +61,9 @@ class DNSDoHServer:
 
 
 Example run:
-![grafik](https://github.com/user-attachments/assets/aa582469-afdb-4018-adc6-74f4a23248d6)
+![grafik](https://github.com/user-attachments/assets/dec32aca-60b0-415a-a616-49c14a21906b)
 
-
-Note instead of the  examples.com.co you should use your domain name
+Note instead of the  examples.com.co you should use your domain name  
 Run: python3 doh_server.py
 
 # Architecture TODO

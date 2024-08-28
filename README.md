@@ -97,4 +97,4 @@ Run: python3 doh_server.py
     url="*/dns-query?*&name=*"   
    you can also search for the http_content_type "application/dns-message", "application/dns-json" in your proxy logs to hunt for DoH communications.
 
-# Scenario 1 - Using PRIVATE DoH Server
+# Scenario 2 - Using PRIVATE DoH Server TODO

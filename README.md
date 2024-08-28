@@ -86,7 +86,7 @@ Run: python3 doh_server.py
 
 
 # Detection Tips for Scenario 1 - Public DOH
-
+The detection tips are not covering the Antivirus/EDR/XDR part, but rather proxy/L7 firewalls and SIEMs.
 1. In the proxy next generation firewall with Layer7 capability check if category=”DoH and DoT”, category=”DoH Services”, urlcategory=”DoH Services” exist. Based on you risk appetite one can choice to monitor or block it.  
 2. Extend your SIEM or proxy/layer7 firewall, with https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv list. Important to note if the proxy/layer7 firewall is set to block those URLs one may cause business process interuption as some of them can be used in daily work.  
 3. Hunt for the bellow URL paths in the SIEM  

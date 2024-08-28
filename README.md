@@ -85,4 +85,16 @@ Note instead of the  examples.com.co you should use your domain name
 Run: python3 doh_server.py
 
 
-# Detection Tips TODO
+# Detection Tips for Scenario 1 - Public DOH
+
+1. In the proxy next generation firewall with Layer7 capability check if category=”DoH and DoT”, category=”DoH Services”, urlcategory=”DoH Services” exist. Based on you risk appetite one can choice to monitor or block it.  
+2. Extend your SIEM or proxy/layer7 firewall, with https://github.com/mthcht/awesome-lists/blob/main/Lists/dns_over_https_servers_list.csv list. Important to note if the proxy/layer7 firewall is set to block those URLs one may cause business process interuption as some of them can be used in daily work.  
+3. Hunt for the bellow URL paths in the SIEM  
+    url="*/resolve?name=*"  
+    url="*/resolve?*&name=*"  
+    url="*/query?name=*type=TXT*"  
+    url="*/dns-query?name=*"    
+    url="*/dns-query?*&name=*"   
+   you can also search for the http_content_type "application/dns-message", "application/dns-json" in your proxy logs to hunt for DoH communications.
+
+# Scenario 1 - Using PRIVATE DoH Server

